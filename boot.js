@@ -21,7 +21,7 @@
 
   // Fill this in with your Netlify URL, OR leave it — the editor will ask
   // for it on your first save and remember it in localStorage.
-  const DEFAULT_PROD_BASE = "https://sunny-halva-7c1b2c.netlify.app";
+  const DEFAULT_PROD_BASE = "https://jolly-cajeta-526c66.netlify.app";
 
   const prodBase = (localStorage.getItem("siteApiBase") || DEFAULT_PROD_BASE).replace(/\/+$/, "");
   const configured = prodBase && !prodBase.includes("YOUR-SITE");

@@ -182,7 +182,7 @@
     let base = localStorage.getItem(API_BASE_KEY) || "";
     if (!base || base.includes("YOUR-SITE")) {
       base = window.prompt(
-        "Enter your LIVE Netlify site URL (e.g. https://sunny-halva-7c1b2c.netlify.app):",
+        "Enter your LIVE Netlify site URL (e.g. https://jolly-cajeta-526c66.netlify.app):",
         "https://"
       );
       if (!base) return null;

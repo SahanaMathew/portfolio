@@ -39,7 +39,7 @@ In the Netlify dashboard: **Site configuration → Environment variables → Add
 Then **redeploy once** (Deploys → Trigger deploy) so the function picks up the variable.
 
 ### 3. (Optional) Bake your live URL into boot.js
-Open `boot.js` and replace `https://sunny-halva-7c1b2c.netlify.app` with your real URL.
+Open `boot.js` and replace `https://jolly-cajeta-526c66.netlify.app` with your real URL.
 If you skip this, the editor will ask for the URL the first time you save and remember it.
 
 ---
@@ -60,6 +60,6 @@ If you skip this, the editor will ask for the URL the first time you save and re
 - The editor is hidden on the live site, so visitors can't edit. Writes also require
   the `EDIT_TOKEN`, so even someone hitting the API directly can't change your content.
 - The password/URL are stored in your browser's localStorage on your machine only.
-- To verify the API quickly: open `https://sunny-halva-7c1b2c.netlify.app/api/content` in a
+- To verify the API quickly: open `https://jolly-cajeta-526c66.netlify.app/api/content` in a
   browser — it returns the stored content as JSON (or `{"content":null}` before the
   first save).
