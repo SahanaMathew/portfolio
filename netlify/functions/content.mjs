@@ -38,7 +38,7 @@ export default async (req) => {
 
   // Preflight for cross-origin POST from localhost.
   if (req.method === "OPTIONS") {
-    return new Response("", { status: 204, headers: corsHeaders(origin) });
+    return new Response(null, { status: 200, headers: corsHeaders(origin) });
   }
 
   const store = getStore(STORE_NAME);
