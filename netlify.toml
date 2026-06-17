@@ -1,0 +1,10 @@
+# Netlify configuration
+# Static site (no build step) + one serverless function that stores/serves
+# the editable site content in Netlify Blobs.
+
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+# Netlify Functions v2 defines its own route (/api/content) via the
+# `config.path` export inside content.mjs, so no manual redirect is needed.

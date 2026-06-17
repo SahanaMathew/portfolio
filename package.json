@@ -1,0 +1,9 @@
+{
+  "name": "sm-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sahana Mathew portfolio with live-editable content via Netlify Functions + Blobs",
+  "dependencies": {
+    "@netlify/blobs": "^8.1.0"
+  }
+}

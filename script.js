@@ -170,13 +170,21 @@ document.querySelectorAll('[data-aos]').forEach(el => {
 const heroSubtitle = document.querySelector('.hero-subtitle');
 if (heroSubtitle) {
     const originalText = heroSubtitle.textContent;
-    const roles = ['AI/ML Engineer', 'GenAI Specialist', 'Data Scientist', 'ML Engineer'];
+    // Read the words live from content.js so on-page edits take effect.
+    const getRoles = () => (window.SITE_CONTENT && window.SITE_CONTENT.heroRoles && window.SITE_CONTENT.heroRoles.length)
+        ? window.SITE_CONTENT.heroRoles
+        : ['AI/ML Engineer', 'GenAI Specialist', 'Data Scientist', 'ML Engineer'];
     let roleIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
     let typingSpeed = 100;
 
     function typeEffect() {
+        // Pause while the on-page editor is open (so you can edit the words).
+        if (window.__editorPaused) { setTimeout(typeEffect, 300); return; }
+
+        const roles = getRoles();
+        if (roleIndex >= roles.length) roleIndex = 0;
         const currentRole = roles[roleIndex];
 
         if (isDeleting) {
@@ -259,8 +267,8 @@ contactForm.addEventListener('submit', (e) => {
     const subject = document.getElementById('subject').value;
     const message = document.getElementById('message').value;
 
-    // Sahana's email address
-    const recipientEmail = 'sahanamathew2000@gmail.com';
+    // Sahana's email address (edit it in content.js)
+    const recipientEmail = (window.SITE_CONTENT && window.SITE_CONTENT.email) || 'sahanamathew2000@gmail.com';
 
     // Create email body
     const emailBody = `Name: ${name}%0D%0A` +
@@ -302,7 +310,7 @@ contactForm.addEventListener('submit', (e) => {
         submitBtn.querySelector('i').className = 'fas fa-exclamation-circle';
 
         // Show error message
-        showNotification('Could not open email client. Please contact directly at sahanamathew2000@gmail.com', 'error');
+        showNotification('Could not open email client. Please contact directly at ' + recipientEmail, 'error');
 
         // Reset button after 3 seconds
         setTimeout(() => {

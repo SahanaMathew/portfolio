@@ -461,6 +461,49 @@ ul, ol {
     animation: slideInRight 0.8s ease-out 0.3s backwards;
 }
 
+/* Profile photo fills the placeholder; the gradient shows until a photo is set. */
+.profile-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--radius-2xl);
+    display: none;
+}
+.profile-img[src] {
+    display: block;
+}
+
+/* While editing on localhost: outline the photo and show a small change button.
+   No full overlay, so the floating cards on top stay editable. */
+body.is-editing .image-placeholder {
+    outline: 2px dashed #667eea;
+    outline-offset: 6px;
+}
+.change-photo-btn {
+    display: none;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    cursor: pointer;
+    border: none;
+    border-radius: 999px;
+    padding: 8px 14px;
+    font: 600 13px Inter, system-ui, sans-serif;
+    color: #fff;
+    background: rgba(17, 24, 39, 0.85);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+body.is-editing .change-photo-btn {
+    display: inline-flex;
+}
+.change-photo-btn:hover {
+    background: rgba(17, 24, 39, 1);
+}
+
 .floating-card {
     position: absolute;
     background-color: var(--bg-primary);
