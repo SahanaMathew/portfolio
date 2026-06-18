@@ -290,8 +290,10 @@ ul, ol {
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
-    padding-top: 80px;
+    /* No overflow:hidden here — the gradient orbs are clipped by
+       .hero-background instead, so the hero can grow with the text
+       and never clip the content. */
+    padding: 100px 0 60px;
 }
 
 .hero-background {
@@ -407,6 +409,8 @@ ul, ol {
     max-width: 600px;
     margin-bottom: var(--spacing-xl);
     animation: slideInUp 0.6s ease-out 0.3s backwards;
+    /* Long words / URLs wrap instead of spilling sideways. */
+    overflow-wrap: break-word;
 }
 
 .hero-cta {
